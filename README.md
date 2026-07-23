@@ -9,6 +9,12 @@ Visit **https://revshawnwalker-code.github.io/shilohs-calendar/** and tap "Subsc
 
 ## To update the schedule
 
+**Easiest way (phone-friendly):** open the [GitHub mobile app](https://github.com/mobile),
+go to this repo → **Issues** → **New issue** → **Add a Calendar Event**, fill in the form,
+and submit. It's added automatically — no editing files required.
+
+**Manual way:**
+
 1. Edit [`events.yaml`](events.yaml) — add, remove, or change any event under `events:`.
    (You can edit it directly on github.com by clicking the pencil icon on the file.)
 2. Commit and push (or commit directly on github.com).
