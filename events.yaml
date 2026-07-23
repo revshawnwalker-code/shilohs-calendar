@@ -31,3 +31,8 @@ events:
     end: "2026-07-26T11:15:00"
     recurrence: "WEEKLY"
     until: "2027-07-25"
+
+  - title: "Test Prayer Meeting"
+    location: "https://zoom.us/j/TEST123"
+    start: "2026-08-10T19:00:00"
+    end: "2026-08-10T20:00:00"
