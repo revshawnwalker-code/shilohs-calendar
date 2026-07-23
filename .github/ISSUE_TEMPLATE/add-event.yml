@@ -1,0 +1,71 @@
+name: Add a Calendar Event
+description: Add a new office hours, service, or event to Shiloh's Calendar
+title: "New event: "
+labels: ["new-event"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fill this out and submit — your calendar updates automatically within a minute or two.
+        You'll get a comment here confirming it worked.
+  - type: input
+    id: event-title
+    attributes:
+      label: Event name
+      placeholder: "Virtual Office Hours"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description (optional)
+      placeholder: "Drop-in video call, open to anyone"
+    validations:
+      required: false
+  - type: input
+    id: location
+    attributes:
+      label: Zoom link or location (optional)
+      placeholder: "https://zoom.us/j/..."
+    validations:
+      required: false
+  - type: input
+    id: date
+    attributes:
+      label: Date of first occurrence
+      description: "Format: YYYY-MM-DD"
+      placeholder: "2026-08-04"
+    validations:
+      required: true
+  - type: input
+    id: start-time
+    attributes:
+      label: Start time (24-hour)
+      description: "Format: HH:MM, e.g. 14:00 for 2:00 PM"
+      placeholder: "14:00"
+    validations:
+      required: true
+  - type: input
+    id: end-time
+    attributes:
+      label: End time (24-hour)
+      placeholder: "15:00"
+    validations:
+      required: true
+  - type: dropdown
+    id: repeats
+    attributes:
+      label: Does this repeat?
+      options:
+        - "No, just once"
+        - "Yes, every week"
+    validations:
+      required: true
+  - type: input
+    id: until
+    attributes:
+      label: Last date it repeats (optional, only if it repeats)
+      description: "Format: YYYY-MM-DD. Leave blank to repeat for 1 year."
+      placeholder: "2027-08-03"
+    validations:
+      required: false
