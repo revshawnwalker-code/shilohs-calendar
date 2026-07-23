@@ -1,0 +1,33 @@
+# Shiloh's Calendar — schedule source
+#
+# Edit this file to add, change, or remove events, then commit and push
+# (or edit it directly on github.com). A GitHub Action rebuilds the
+# calendar feed automatically within a minute or two of your push.
+#
+# Event fields:
+#   title        required
+#   description  optional
+#   location     optional (e.g. a Zoom link or room name)
+#   start / end  required, local time, format: YYYY-MM-DDTHH:MM:SS
+#   recurrence   optional: WEEKLY (omit for a one-time event)
+#   until        optional end date for a recurring event, format: YYYY-MM-DD
+
+calendar_name: "Shiloh's Calendar"
+timezone: "America/New_York"
+
+events:
+  - title: "Virtual Office Hours"
+    description: "Drop-in video call — open to anyone in the congregation."
+    location: "https://zoom.us/j/EXAMPLE-CHANGE-ME"
+    start: "2026-07-28T14:00:00"
+    end: "2026-07-28T15:00:00"
+    recurrence: "WEEKLY"
+    until: "2027-07-27"
+
+  - title: "Sunday Worship Service"
+    description: "Join us live online."
+    location: "https://zoom.us/j/EXAMPLE-CHANGE-ME"
+    start: "2026-07-26T10:00:00"
+    end: "2026-07-26T11:15:00"
+    recurrence: "WEEKLY"
+    until: "2027-07-25"
