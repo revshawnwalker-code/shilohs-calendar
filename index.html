@@ -3,79 +3,191 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Subscribe to Shiloh's virtual office hours, services, and events — stays automatically up to date.">
-<title>Shiloh's Calendar</title>
+<meta name="description" content="Shiloh Baptist Church in Scranton, PA — service times, location, and how to join us in person or online.">
+<title>Shiloh Baptist Church</title>
+<link rel="icon" href="images/shiloh-logo.jpg">
 <style>
-  body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; max-width: 640px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; color: #1a1a1a; }
-  h1 { margin-bottom: 0.25rem; }
-  .subtitle { color: #555; margin-top: 0; }
-  .buttons { display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 1.5rem 0; }
-  .btn { display: inline-block; padding: 0.65rem 1.1rem; border-radius: 8px; text-decoration: none; font-weight: 600; }
-  .btn.primary { background: #2563eb; color: #fff; }
-  .btn.secondary { background: #eee; color: #1a1a1a; }
-  code { background: #f2f2f2; padding: 0.15rem 0.4rem; border-radius: 4px; word-break: break-all; }
-  #schedule { padding-left: 1.2rem; }
-  #schedule li { margin-bottom: 0.5rem; }
-  details { margin: 1rem 0; }
+  :root {
+    --maroon: #5a1a1e;
+    --orange: #ec8b2e;
+    --cream: #fdf8f1;
+    --text: #262019;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    color: var(--text);
+    line-height: 1.6;
+    background: #fff;
+  }
+  a { color: var(--maroon); }
+  header {
+    background: var(--maroon);
+    color: #fff;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  header img { width: 52px; height: 52px; border-radius: 50%; }
+  header .name { font-size: 1.3rem; font-weight: 700; }
+  nav {
+    margin-left: auto;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+  nav a:hover { text-decoration: underline; }
+  .social { display: flex; gap: 0.75rem; align-items: center; }
+  .social a { display: inline-flex; }
+  .social svg { width: 22px; height: 22px; fill: #fff; }
+  .social a:hover svg { fill: var(--orange); }
+  footer .social { justify-content: center; margin-top: 0.75rem; }
+  footer .social svg { fill: #f2e9dc; }
+  footer .social a:hover svg { fill: var(--orange); }
+  .hero {
+    background: linear-gradient(180deg, var(--orange), var(--cream));
+    text-align: center;
+    padding: 3rem 1.25rem;
+  }
+  .hero img { width: 140px; height: 140px; border-radius: 50%; box-shadow: 0 4px 16px rgba(0,0,0,0.25); }
+  .hero h1 { margin: 1rem 0 0.25rem; font-size: 2rem; }
+  .hero p { margin: 0.25rem 0 0; font-size: 1.1rem; }
+  .hero .cta { margin-top: 1.5rem; display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 0.7rem 1.3rem; border-radius: 8px; text-decoration: none; font-weight: 700; }
+  .btn.primary { background: var(--maroon); color: #fff; }
+  .btn.secondary { background: #fff; color: var(--maroon); border: 2px solid var(--maroon); }
+  section { max-width: 800px; margin: 0 auto; padding: 3rem 1.25rem; }
+  section h2 {
+    color: var(--maroon);
+    border-bottom: 3px solid var(--orange);
+    padding-bottom: 0.4rem;
+    display: inline-block;
+  }
+  .times { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 1.5rem; }
+  .time-card {
+    background: var(--cream);
+    border-left: 5px solid var(--orange);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+  }
+  .time-card .day { font-weight: 700; color: var(--maroon); }
+  .time-card .clock { font-size: 1.3rem; font-weight: 700; }
+  .about-grid { display: flex; gap: 2rem; flex-wrap: wrap; align-items: flex-start; margin-top: 1.5rem; }
+  .about-grid p { flex: 1 1 300px; }
+  .contact-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 1.5rem; }
+  .contact-grid iframe { width: 100%; height: 260px; border: 0; border-radius: 8px; }
+  .contact-details p { margin: 0.4rem 0; }
+  footer {
+    background: var(--maroon);
+    color: #f2e9dc;
+    text-align: center;
+    padding: 1.5rem 1.25rem;
+    font-size: 0.9rem;
+  }
+  footer a { color: #fff; }
 </style>
 </head>
 <body>
-  <h1>Shiloh's Calendar</h1>
-  <p class="subtitle">Virtual office hours, services, and events — subscribe once and it stays up to date.</p>
+  <header>
+    <img src="images/shiloh-logo.jpg" alt="Shiloh Baptist Church logo">
+    <span class="name">Shiloh Baptist Church</span>
+    <nav>
+      <a href="#service-times">Service Times</a>
+      <a href="#about">About</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="social">
+      <a href="https://www.facebook.com/share/1EugRu4JmQ/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Shiloh Baptist Church on Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
+      </a>
+      <a href="https://youtube.com/@shilohbaptistchurchofscranton?si=ATcjl0VHbEnbJJgf" target="_blank" rel="noopener" aria-label="Shiloh Baptist Church on YouTube">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.51 3.5 12 3.5 12 3.5s-7.51 0-9.38.55A3.02 3.02 0 0 0 .5 6.19 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.12 2.14C4.49 20.5 12 20.5 12 20.5s7.51 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.81ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg>
+      </a>
+    </div>
+  </header>
 
-  <div class="buttons">
-    <a class="btn primary" href="webcal://revshawnwalker-code.github.io/shilohs-calendar/calendar.ics" aria-label="Subscribe to the calendar, auto-updates">📅 Subscribe (auto-updates)</a>
-    <a class="btn secondary" href="calendar.ics" download aria-label="Download the calendar once">⬇️ Download once</a>
+  <div class="hero">
+    <img src="images/shiloh-logo.jpg" alt="Shiloh Baptist Church logo">
+    <h1>Welcome to Shiloh Baptist Church</h1>
+    <p>Scranton, PA &mdash; Pastor: Rev. Shawn Walker</p>
+    <div class="cta">
+      <a class="btn primary" href="#service-times">Join Us This Week</a>
+      <a class="btn secondary" href="calendar.html">Subscribe to Our Calendar</a>
+    </div>
   </div>
 
-  <details>
-    <summary>How to subscribe on your device</summary>
-    <ul>
-      <li><strong>iPhone/iPad:</strong> Tap "Subscribe" above, then confirm under Settings → Calendar → Accounts.</li>
-      <li><strong>Google Calendar (desktop):</strong> Other calendars → + → "From URL" → paste the feed link below.</li>
-      <li><strong>Outlook:</strong> Add calendar → Subscribe from web → paste the feed link below.</li>
-    </ul>
-    <p>Feed link: <code>https://revshawnwalker-code.github.io/shilohs-calendar/calendar.ics</code></p>
-    <p><em>Note: calendar apps check subscribed feeds for updates every few hours, not instantly — that's normal for every calendar subscription, not specific to this one.</em></p>
-  </details>
+  <section id="service-times">
+    <h2>Service Times</h2>
+    <div class="times">
+      <div class="time-card">
+        <div class="day">Sunday School</div>
+        <div class="clock">10:00 AM</div>
+      </div>
+      <div class="time-card">
+        <div class="day">Sunday Worship Service</div>
+        <div class="clock">11:00 AM</div>
+      </div>
+      <div class="time-card">
+        <div class="day">Wednesday Bible Study</div>
+        <div class="clock">7:00 PM</div>
+      </div>
+    </div>
+    <p style="margin-top:1.5rem;">
+      Some services and gatherings are also available online &mdash;
+      see our <a href="calendar.html">calendar page</a> to subscribe and get virtual meeting links.
+    </p>
+  </section>
 
-  <h2>Upcoming Schedule</h2>
-  <ul id="schedule">Loading…</ul>
+  <section id="about">
+    <h2>About Us</h2>
+    <div class="about-grid">
+      <p>
+        Shiloh Baptist Church is a welcoming congregation in Scranton, Pennsylvania,
+        dedicated to worship, Bible study, and serving our community. Whether you're
+        new to faith or have walked with the Lord for years, there's a place for you here.
+      </p>
+      <p>
+        Our pastor, <strong>Rev. Shawn Walker</strong>, leads our congregation in weekly
+        worship, Sunday School, and Wednesday Bible Study. We'd love for you to join us,
+        in person or online.
+      </p>
+    </div>
+  </section>
 
-  <script>
-    fetch('calendar.ics')
-      .then(r => r.text())
-      .then(text => {
-        const list = document.getElementById('schedule');
-        const blocks = [...text.matchAll(/BEGIN:VEVENT([\s\S]*?)END:VEVENT/g)].map(m => m[1]);
-        if (!blocks.length) {
-          list.innerHTML = '<li>No events scheduled yet.</li>';
-          return;
-        }
-        list.innerHTML = '';
-        blocks.forEach(block => {
-          const field = (name) => {
-            const m = block.match(new RegExp(name + '[^:]*:(.+)'));
-            return m ? m[1].trim() : '';
-          };
-          const summary = field('SUMMARY').replace(/\\,/g, ',').replace(/\\;/g, ';');
-          const when = formatIcsDate(field('DTSTART'));
-          const repeats = block.includes('RRULE') ? ' (repeats weekly)' : '';
-          const li = document.createElement('li');
-          li.textContent = `${summary} — ${when}${repeats}`;
-          list.appendChild(li);
-        });
-      })
-      .catch(() => {
-        document.getElementById('schedule').innerHTML = '<li>Could not load the schedule right now.</li>';
-      });
+  <section id="contact">
+    <h2>Location &amp; Contact</h2>
+    <div class="contact-grid">
+      <div class="contact-details">
+        <p><strong>Address:</strong><br>1936 Wayne Ave.<br>Scranton, PA 18508</p>
+        <p><strong>Phone:</strong> <a href="tel:+15703483360">(570) 348-3360</a></p>
+        <p><strong>Email:</strong> <a href="mailto:revshawnwalker@gmail.com">revshawnwalker@gmail.com</a></p>
+        <p><strong>Pastor:</strong> Rev. Shawn Walker</p>
+      </div>
+      <iframe
+        title="Map to Shiloh Baptist Church"
+        src="https://www.google.com/maps?q=1936+Wayne+Ave,+Scranton,+PA+18508&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
 
-    function formatIcsDate(value) {
-      const m = value && value.match(/(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z?/);
-      if (!m) return value || '';
-      const d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3], +m[4], +m[5], +m[6]));
-      return d.toLocaleString(undefined, { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
-    }
-  </script>
+  <footer>
+    <p>Shiloh Baptist Church &middot; 1936 Wayne Ave., Scranton, PA 18508 &middot; (570) 348-3360</p>
+    <p><a href="calendar.html">View &amp; subscribe to our calendar</a></p>
+    <div class="social">
+      <a href="https://www.facebook.com/share/1EugRu4JmQ/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Shiloh Baptist Church on Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
+      </a>
+      <a href="https://youtube.com/@shilohbaptistchurchofscranton?si=ATcjl0VHbEnbJJgf" target="_blank" rel="noopener" aria-label="Shiloh Baptist Church on YouTube">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.51 3.5 12 3.5 12 3.5s-7.51 0-9.38.55A3.02 3.02 0 0 0 .5 6.19 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.81 3.02 3.02 0 0 0 2.12 2.14C4.49 20.5 12 20.5 12 20.5s7.51 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.81ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg>
+      </a>
+    </div>
+  </footer>
 </body>
 </html>

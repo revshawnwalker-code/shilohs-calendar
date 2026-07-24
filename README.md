@@ -1,11 +1,19 @@
-# Shiloh's Calendar
+# Shiloh Baptist Church Website
 
-A public calendar feed for virtual office hours, services, and other events.
+The website for Shiloh Baptist Church (Scranton, PA), including a public
+calendar feed for virtual office hours, services, and other events.
 Congregation members subscribe once and it stays automatically up to date.
 
 ## For the congregation
 
-Visit **https://revshawnwalker-code.github.io/shilohs-calendar/** and tap "Subscribe."
+Visit **https://revshawnwalker-code.github.io/shilohs-calendar/** for service
+times, location, and contact info. From there, follow the "Calendar" link
+and tap "Subscribe" to keep your calendar app up to date automatically.
+
+## To update the homepage
+
+Edit [`index.html`](index.html) directly (service times, address, phone,
+about text) and commit/push — it's plain HTML, no build step required.
 
 ## To update the schedule
 
